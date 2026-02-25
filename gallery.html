@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мудрость Великих - Галерея</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="parallax-bg"></div>
+    <div class="container">
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-crown"></i>
+                    <span>Мудрость Великих</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="celebrities.html"><i class="fas fa-users"></i> Знаменитости</a></li>
+                    <li><a href="gallery.html" class="active"><i class="fas fa-images"></i> Галерея</a></li>
+                    <li><a href="#" id="inspireBtn"><i class="fas fa-lightbulb"></i> Вдохновиться</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="page-header">
+                <h1>Галерея великих умов</h1>
+                <p>Визуальное путешествие по жизни и наследию выдающихся личностей</p>
+            </section>
+
+            <section class="gallery-grid" id="galleryContainer">
+            </section>
+
+            <section class="timeline-section">
+                <h2>Хронология великих умов</h2>
+                <div class="timeline" id="timelineContainer">
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Мудрость Великих</h3>
+                    <p>Собрание вечной мудрости для вдохновения и размышлений.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Навигация</h3>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="celebrities.html">Знаменитости</a></li>
+                        <li><a href="gallery.html">Галерея</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-envelope"></i> wisdom@greats.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Мудрость Великих. Все права защищены.</p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="fullscreen-modal" id="inspireModal">
+        <div class="fullscreen-modal-content">
+            <span class="close-fullscreen-modal">&times;</span>
+            <div class="fullscreen-modal-body" id="inspireModalBody">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

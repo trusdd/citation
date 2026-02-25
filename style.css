@@ -1,0 +1,1531 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #d4af37;
+    --gold-dark: #b8941f;
+    --brown-dark: #2c2416;
+    --brown-medium: #5d432c;
+    --brown-light: #8b7355;
+    --cream: #f8f5f0;
+    --cream-dark: #e8e0d5;
+    --text-primary: #2c2416;
+    --text-secondary: #5d432c;
+    --text-muted: #6b5a4a;
+    --bg-primary: #f8f5f0;
+    --bg-secondary: #ffffff;
+    --border-color: #d4b483;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --border-radius: 10px;
+    --container-padding: clamp(1rem, 5vw, 3rem);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.parallax-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-image: url('https://www.transparenttextures.com/patterns/old-wall.png'), 
+                      linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+    z-index: -1;
+    will-change: transform;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+/* Навигация */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+    font-weight: 700;
+    color: var(--brown-light);
+    white-space: nowrap;
+}
+
+.logo i {
+    margin-right: var(--spacing-xs);
+    color: var(--gold);
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: clamp(0.5rem, 2vw, 2rem);
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.nav-links a i {
+    margin-right: 6px;
+    font-size: 0.9em;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+.nav-links a.active {
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: calc(0.5rem - 2px);
+}
+
+/* Герой-секция */
+.hero {
+    background: linear-gradient(rgba(44, 36, 22, 0.85), rgba(44, 36, 22, 0.85)), 
+                url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: clamp(3rem, 10vw, 6rem) clamp(1rem, 5vw, 2rem);
+    text-align: center;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.gold-text {
+    color: var(--gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.95;
+    font-family: 'Cormorant Garamond', serif;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1.5rem, 4vw, 2rem);
+    border: none;
+    border-radius: 5px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    min-width: 180px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: var(--gold);
+    color: var(--brown-dark);
+}
+
+.btn-primary:hover {
+    background-color: var(--gold-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    min-width: auto;
+}
+
+/* Секции */
+section {
+    margin-bottom: var(--spacing-xl);
+}
+
+section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    position: relative;
+    padding: 0 var(--spacing-sm);
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: min(100px, 30%);
+    height: 2px;
+    background-color: var(--gold);
+    margin: var(--spacing-sm) auto 0;
+}
+
+/* Карточка цитаты */
+.quote-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: clamp(1.5rem, 4vw, 2rem);
+    box-shadow: var(--shadow);
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.quote-card::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.2;
+    font-family: 'Playfair Display', serif;
+}
+
+.quote-text {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-style: italic;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+    line-height: 1.8;
+    padding-right: var(--spacing-sm);
+}
+
+.quote-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.author-avatar {
+    width: clamp(50px, 8vw, 60px);
+    height: clamp(50px, 8vw, 60px);
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    object-fit: cover;
+}
+
+.author-info h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--text-primary);
+}
+
+.author-info p {
+    color: var(--text-muted);
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+.quote-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Карта мира */
+.world-map-section {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    padding: 0 var(--spacing-sm);
+}
+
+.world-map-section p {
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-md);
+}
+
+.world-map {
+    height: clamp(300px, 50vh, 500px);
+    width: 100%;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--border-color);
+    box-shadow: var(--shadow);
+    z-index: 1;
+    margin-top: var(--spacing-md);
+}
+
+/* О нас */
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    align-items: center;
+    padding: 0 var(--spacing-sm);
+}
+
+.about-text {
+    text-align: left;
+}
+
+.about-text p {
+    margin-bottom: var(--spacing-sm);
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.about-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.stat {
+    text-align: center;
+    padding: var(--spacing-sm);
+    min-width: 120px;
+}
+
+.stat i {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--gold);
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat h3 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--text-primary);
+    font-family: 'Playfair Display', serif;
+}
+
+.stat p {
+    color: var(--text-muted);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* Страница знаменитостей */
+.page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    padding: 0 var(--spacing-sm);
+}
+
+.page-header p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+    padding: 0 var(--spacing-sm);
+}
+
+.search-box {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 var(--spacing-sm);
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.search-box input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.search-box button {
+    position: absolute;
+    right: var(--spacing-sm);
+    top: 0;
+    height: 100%;
+    background-color: var(--gold);
+    border: none;
+    border-radius: 0 5px 5px 0;
+    padding: 0 1.5rem;
+    cursor: pointer;
+    color: var(--brown-dark);
+}
+
+.filter-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-sm);
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.filter-tag {
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    transition: all 0.3s ease;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.filter-tag:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+.filter-tag.active {
+    background-color: var(--gold);
+    color: var(--brown-dark);
+    border-color: var(--gold);
+}
+
+.sort-options {
+    min-width: 180px;
+}
+
+.sort-options select {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--bg-secondary);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 var(--spacing-sm) var(--spacing-lg);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: rgba(212, 175, 55, 0.1);
+    border-radius: 5px;
+    border-left: 4px solid var(--gold);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.category-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-primary);
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin: 0;
+}
+
+.category-header span {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+/* Сетка знаменитостей */
+.celebrities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
+    margin-bottom: var(--spacing-xl);
+    padding: 0 var(--spacing-sm);
+}
+
+.celebrity-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.celebrity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.celebrity-image {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.celebrity-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(to top, var(--bg-secondary), transparent);
+    pointer-events: none;
+}
+
+.celebrity-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.celebrity-card:hover .celebrity-image img {
+    transform: scale(1.05);
+}
+
+.celebrity-info {
+    padding: var(--spacing-md);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.celebrity-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+}
+
+.celebrity-category {
+    color: var(--gold);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.celebrity-quote {
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+    border-left: 3px solid var(--gold);
+    padding-left: var(--spacing-sm);
+    font-size: 0.95rem;
+    flex: 1;
+}
+
+.celebrity-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.celebrity-actions .btn {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Модальные окна */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-md);
+}
+
+.modal-content {
+    background-color: var(--bg-secondary);
+    padding: clamp(1.5rem, 5vw, 2rem);
+    border-radius: var(--border-radius);
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    margin: auto;
+    border: 1px solid var(--border-color);
+}
+
+.close-modal {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-md);
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    line-height: 1;
+    z-index: 1001;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--gold);
+}
+
+/* Fullscreen модальное окно */
+.fullscreen-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(44,36,22,0.98) 0%, rgba(92,76,58,0.98) 100%);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-lg);
+}
+
+.fullscreen-modal-content {
+    width: 100%;
+    max-width: 900px;
+    position: relative;
+    margin: auto;
+}
+
+.close-fullscreen-modal {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    font-size: 3rem;
+    color: var(--gold);
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 2001;
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    .close-fullscreen-modal {
+        top: -40px;
+        font-size: 2.5rem;
+    }
+}
+
+.close-fullscreen-modal:hover {
+    color: #ffffff;
+}
+
+.fullscreen-modal-body {
+    color: #ffffff;
+    text-align: center;
+}
+
+.fullscreen-quote-content {
+    padding: var(--spacing-lg);
+}
+
+.fullscreen-quote-icon {
+    font-size: clamp(3rem, 10vw, 5rem);
+    color: var(--gold);
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.8;
+}
+
+.fullscreen-quote-text {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-family: 'Playfair Display', serif;
+    line-height: 1.4;
+    margin-bottom: var(--spacing-xl);
+    font-style: italic;
+    color: #ffffff;
+}
+
+.fullscreen-quote-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2rem);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.fullscreen-quote-author img {
+    width: clamp(60px, 15vw, 100px);
+    height: clamp(60px, 15vw, 100px);
+    border-radius: 50%;
+    border: 4px solid var(--gold);
+    object-fit: cover;
+}
+
+.fullscreen-quote-author h3 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 0.3rem;
+    color: #ffffff;
+}
+
+.fullscreen-quote-author p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.fullscreen-quote-years {
+    font-size: 0.9rem !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.fullscreen-new-quote {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    padding: clamp(0.8rem, 2vw, 1rem) clamp(2rem, 5vw, 3rem);
+}
+
+/* Галерея */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: clamp(1rem, 3vw, 1.5rem);
+    margin-bottom: var(--spacing-xl);
+    padding: 0 var(--spacing-sm);
+}
+
+.gallery-item {
+    position: relative;
+    height: 300px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(44, 36, 22, 0.95));
+    color: #ffffff;
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+@media (min-width: 769px) {
+    .gallery-item:hover .gallery-overlay {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-overlay {
+        transform: translateY(0);
+        background: linear-gradient(transparent, rgba(44, 36, 22, 0.9));
+    }
+}
+
+.gallery-overlay h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.gallery-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.gallery-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.gallery-tag {
+    background-color: rgba(212, 175, 55, 0.9);
+    color: var(--brown-dark);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Таймлайн */
+.timeline-section {
+    margin-bottom: var(--spacing-xl);
+    padding: 0 var(--spacing-sm);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: var(--gold);
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.timeline-date {
+    flex: 1;
+    padding: var(--spacing-sm);
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.timeline-content {
+    flex: 2;
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin: 0 clamp(1rem, 3vw, 2rem);
+}
+
+.timeline-content h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+}
+
+.timeline-content p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: var(--text-muted);
+}
+
+/* Мобильная версия таймлайна */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        flex-direction: row !important;
+        margin-left: 40px;
+    }
+    
+    .timeline-item:nth-child(odd) {
+        flex-direction: row !important;
+    }
+    
+    .timeline-date {
+        position: absolute;
+        left: -60px;
+        width: 50px;
+        font-size: 0.8rem;
+        padding: 0.5rem;
+        background-color: var(--gold);
+        color: var(--brown-dark);
+    }
+    
+    .timeline-content {
+        margin: 0 0 0 var(--spacing-md);
+        flex: 1;
+    }
+}
+
+/* Цитаты в модальном окне */
+.celebrity-quotes-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--gold);
+}
+
+.celebrity-quotes-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-primary);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.quotes-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.quote-item {
+    padding: var(--spacing-md);
+    border-left: 4px solid var(--gold);
+    background-color: var(--bg-primary);
+    border-radius: 0 5px 5px 0;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.quote-item.typewriter-animate {
+    animation: slideIn 0.5s ease forwards;
+}
+
+.quote-item i {
+    color: var(--gold);
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.quote-item p {
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    font-style: italic;
+    color: var(--text-secondary);
+    display: inline;
+}
+
+/* Попап на карте */
+.map-popup {
+    text-align: center;
+    min-width: 200px;
+    max-width: 250px;
+    padding: 0.5rem;
+}
+
+.map-popup h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+}
+
+.map-popup p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.map-popup-quotes {
+    margin: 0.8rem 0;
+    padding: 0.5rem;
+    background-color: var(--bg-primary);
+    border-radius: 5px;
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.map-popup .btn-small {
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+/* Футер */
+footer {
+    background-color: var(--brown-dark);
+    color: rgba(255, 255, 255, 0.8);
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    width: 100%;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    padding: 0 var(--container-padding);
+}
+
+.footer-section {
+    text-align: left;
+}
+
+.footer-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 1rem;
+}
+
+.footer-section ul li a:hover {
+    color: var(--gold);
+}
+
+.footer-section p {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-section p i {
+    color: var(--gold);
+    width: 20px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    margin: 0 var(--container-padding);
+}
+
+/* Сообщения об ошибках */
+.error-message, .no-results {
+    text-align: center;
+    padding: var(--spacing-xl);
+    grid-column: 1 / -1;
+}
+
+.error-message i, .no-results i {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.error-message h3, .no-results h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.error-message p, .no-results p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* Анимации */
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.celebrity-card, .gallery-item, .quote-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Адаптивность для очень маленьких экранов */
+@media (max-width: 480px) {
+    :root {
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 2rem;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .logo {
+        justify-content: center;
+    }
+    
+    .nav-links {
+        justify-content: center;
+    }
+    
+    .nav-links a {
+        padding: 0.4rem;
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        min-width: 140px;
+    }
+    
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-tags {
+        justify-content: center;
+    }
+    
+    .filter-tag {
+        white-space: normal;
+        text-align: center;
+    }
+    
+    .category-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .celebrities-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .fullscreen-quote-author {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-section p {
+        justify-content: center;
+    }
+}
+
+/* Для планшетов */
+@media (min-width: 481px) and (max-width: 768px) {
+    .celebrities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .about-text {
+        text-align: center;
+    }
+}
+
+/* Для больших экранов */
+@media (min-width: 1441px) {
+    .container {
+        max-width: 1600px;
+    }
+    
+    .celebrities-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Улучшения для touch-устройств */
+@media (hover: none) {
+    .gallery-overlay {
+        transform: translateY(0);
+        background: linear-gradient(transparent, rgba(44, 36, 22, 0.9));
+    }
+    
+    .celebrity-card:hover {
+        transform: none;
+        box-shadow: var(--shadow);
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* Поддержка темной темы системы */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-primary: #f0f0f0;
+        --text-secondary: #d0d0d0;
+        --text-muted: #a0a0a0;
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2a2a2a;
+        --border-color: #4a4a4a;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+    
+    .parallax-bg {
+        background-image: url('https://www.transparenttextures.com/patterns/dark-wall.png'),
+                          linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    }
+    
+    .filter-tag {
+        background-color: var(--bg-secondary);
+    }
+    
+    .filter-tag:hover {
+        background-color: rgba(212, 175, 55, 0.2);
+    }
+    
+    .search-box input {
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+    }
+    
+    .modal-content {
+        border: 1px solid var(--border-color);
+    }
+    
+    .quote-item {
+        background-color: var(--bg-secondary);
+    }
+    
+    .gallery-tag {
+        background-color: var(--gold);
+        color: #1a1a1a;
+    }
+    
+    .gallery-overlay {
+        background: linear-gradient(transparent, rgba(26, 26, 26, 0.95));
+    }
+}
+
+/* Стили для коллекций */
+.collections-section {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.2rem;
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.collection-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.collection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--gold);
+}
+
+.collection-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.collection-card:hover::before {
+    transform: scaleX(1);
+}
+
+.collection-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.collection-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.3rem;
+}
+
+.collection-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.collection-count {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background-color: rgba(212, 175, 55, 0.1);
+    border-radius: 20px;
+    color: var(--gold);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.collection-card .btn {
+    width: 100%;
+}
+
+/* Модальное окно коллекции */
+.modal-lg {
+    max-width: 800px !important;
+}
+
+.collection-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--gold);
+}
+
+.collection-header-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.collection-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.collection-header p {
+    color: var(--text-muted);
+}
+
+.collection-quotes-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: var(--spacing-sm);
+}
+
+.collection-quote-item {
+    padding: var(--spacing-md);
+    background-color: var(--bg-primary);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--gold);
+    animation: slideIn 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.collection-quote-author {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.collection-quote-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--gold);
+}
+
+.collection-quote-author h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+}
+
+.collection-quote-author p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.collection-quote-text {
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding-left: var(--spacing-sm);
+    border-left: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Анимация для появления цитат */
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность для коллекций */
+@media (max-width: 768px) {
+    .collections-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .collections-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .collection-quote-author {
+        flex-direction: column;
+        text-align: center;
+    }
+}
