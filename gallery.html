@@ -1,84 +1,99 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мудрость Великих - Галерея</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Галерея | Мудрость Великих</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
-    <div class="parallax-bg"></div>
-    <div class="container">
-        <header>
-            <nav class="navbar">
-                <div class="logo">
-                    <i class="fas fa-crown"></i>
-                    <span>Мудрость Великих</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
-                    <li><a href="celebrities.html"><i class="fas fa-users"></i> Знаменитости</a></li>
-                    <li><a href="gallery.html" class="active"><i class="fas fa-images"></i> Галерея</a></li>
-                    <li><a href="#" id="inspireBtn"><i class="fas fa-lightbulb"></i> Вдохновиться</a></li>
-                </ul>
-            </nav>
-        </header>
+  <div class="gradient-bg"></div>
+  <div class="parallax-bg"></div>
 
-        <main>
-            <section class="page-header">
-                <h1>Галерея великих умов</h1>
-                <p>Визуальное путешествие по жизни и наследию выдающихся личностей</p>
-            </section>
+  <nav class="nav-premium">
+    <div class="nav-container">
+      <div class="logo-premium">
+        <i class="fas fa-crown"></i>
+        <span>WISDOM</span>
+      </div>
+      <div class="nav-links-premium">
+        <a href="index.html">Главная</a>
+        <a href="celebrities.html">Личности</a>
+        <a href="gallery.html" class="active">Галерея</a>
+        <button id="inspireBtnPremium" class="nav-cta">Вдохновиться</button>
+        <button id="favoritesBtnPremium" class="nav-icon"><i class="fas fa-heart"></i></button>
+        <button id="themeTogglePremium" class="nav-icon"><i class="fas fa-moon"></i></button>
+      </div>
+    </div>
+  </nav>
 
-            <section class="gallery-grid" id="galleryContainer">
-            </section>
-
-            <section class="timeline-section">
-                <h2>Хронология великих умов</h2>
-                <div class="timeline" id="timelineContainer">
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Мудрость Великих</h3>
-                    <p>Собрание вечной мудрости для вдохновения и размышлений.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Навигация</h3>
-                    <ul>
-                        <li><a href="index.html">Главная</a></li>
-                        <li><a href="celebrities.html">Знаменитости</a></li>
-                        <li><a href="gallery.html">Галерея</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Контакты</h3>
-                    <p><i class="fas fa-envelope"></i> wisdom@greats.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Мудрость Великих. Все права защищены.</p>
-            </div>
-        </footer>
+  <main class="main-premium">
+    <div class="page-header-premium">
+      <div class="section-header center">
+        <span class="section-tag">Визуальное наследие</span>
+        <h1>Галерея великих</h1>
+        <p>Портреты и моменты из жизни тех, чьи слова изменили мир</p>
+      </div>
     </div>
 
-    <div class="fullscreen-modal" id="inspireModal">
-        <div class="fullscreen-modal-content">
-            <span class="close-fullscreen-modal">&times;</span>
-            <div class="fullscreen-modal-body" id="inspireModalBody">
-                <div class="loading-spinner">
-                    <i class="fas fa-spinner fa-spin"></i>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="gallery-grid-premium" id="galleryContainerPremium"></div>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <div class="timeline-premium">
+      <div class="section-header center">
+        <span class="section-tag">Хронология</span>
+        <h2>Временная шкала</h2>
+      </div>
+      <div class="timeline-container" id="timelineContainerPremium"></div>
+    </div>
+  </main>
+
+  <footer class="footer-premium">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <i class="fas fa-crown"></i>
+        <span>WISDOM</span>
+        <p>Премиум коллекция цитат великих людей</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Главная</a>
+        <a href="celebrities.html">Личности</a>
+        <a href="gallery.html">Галерея</a>
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Wisdom of the Greats. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="modal-premium" id="quoteModalPremium">
+    <div class="modal-premium-content">
+      <button class="modal-close">&times;</button>
+      <div id="modalBodyPremium"></div>
+    </div>
+  </div>
+
+  <div class="modal-premium fullscreen" id="inspireModalPremium">
+    <div class="modal-premium-content fullscreen">
+      <button class="modal-close">&times;</button>
+      <div id="inspireModalBodyPremium"></div>
+    </div>
+  </div>
+
+  <div class="toast-premium" id="toastPremium"></div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>

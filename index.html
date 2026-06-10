@@ -1,178 +1,223 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мудрость Великих - Главная</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Мудрость Великих — эксклюзивная коллекция цитат выдающихся личностей">
+  <meta name="theme-color" content="#faf8f5">
+  <title>Мудрость Великих | Премиум коллекция цитат</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
-    <div class="parallax-bg"></div>
-    <div class="container">
-        <header>
-            <nav class="navbar">
-                <div class="logo">
-                    <i class="fas fa-crown"></i>
-                    <span>Мудрость Великих</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
-                    <li><a href="celebrities.html"><i class="fas fa-users"></i> Знаменитости</a></li>
-                    <li><a href="gallery.html"><i class="fas fa-images"></i> Галерея</a></li>
-                    <li><a href="#" id="inspireBtn"><i class="fas fa-lightbulb"></i> Вдохновиться</a></li>
-                </ul>
-            </nav>
-        </header>
+  <div class="gradient-bg"></div>
+  <div class="parallax-bg"></div>
 
-        <main>
-            <section class="hero">
-                <div class="hero-content">
-                    <h1>Мудрость <span class="gold-text">Великих</span></h1>
-                    <p class="subtitle">Собрание цитат выдающихся личностей, чьи слова изменили мир</p>
-                    <div class="cta-buttons">
-                        <a href="celebrities.html" class="btn btn-primary">Исследовать цитаты</a>
-                        <a href="#collections" class="btn btn-secondary">Коллекции</a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="featured-quotes">
-                <h2>Цитата дня</h2>
-                <div class="quote-card" id="quoteOfTheDay">
-                </div>
-            </section>
-
-            <section class="collections-section" id="collections">
-                <h2>Коллекции по темам</h2>
-                <p class="section-subtitle">Выберите тему, которая вас вдохновляет</p>
-                
-                <div class="collections-grid">
-                    <div class="collection-card" data-theme="motivation">
-                        <div class="collection-icon">💪</div>
-                        <h3>Мотивация</h3>
-                        <p>Цитаты про успех, цели и движение вперед</p>
-                        <span class="collection-count" id="motivation-count">0 цитат</span>
-                        <button class="btn btn-small collection-btn">Смотреть коллекцию</button>
-                    </div>
-
-                    <div class="collection-card" data-theme="love">
-                        <div class="collection-icon">❤️</div>
-                        <h3>Любовь</h3>
-                        <p>Романтические цитаты о самом прекрасном чувстве</p>
-                        <span class="collection-count" id="love-count">0 цитат</span>
-                        <button class="btn btn-small collection-btn">Смотреть коллекцию</button>
-                    </div>
-
-                    <div class="collection-card" data-theme="wisdom">
-                        <div class="collection-icon">🧠</div>
-                        <h3>Мудрость</h3>
-                        <p>Философские размышления о жизни</p>
-                        <span class="collection-count" id="wisdom-count">0 цитат</span>
-                        <button class="btn btn-small collection-btn">Смотреть коллекцию</button>
-                    </div>
-
-                    <div class="collection-card" data-theme="happiness">
-                        <div class="collection-icon">😊</div>
-                        <h3>Счастье</h3>
-                        <p>Цитаты про радость жизни и гармонию</p>
-                        <span class="collection-count" id="happiness-count">0 цитат</span>
-                        <button class="btn btn-small collection-btn">Смотреть коллекцию</button>
-                    </div>
-
-                    <div class="collection-card" data-theme="success">
-                        <div class="collection-icon">🌟</div>
-                        <h3>Успех</h3>
-                        <p>Бизнес-мысли и секреты достижений</p>
-                        <span class="collection-count" id="success-count">0 цитат</span>
-                        <button class="btn btn-small collection-btn">Смотреть коллекцию</button>
-                    </div>
-                </div>
-            </section>
-
-            <section class="world-map-section" id="world-map">
-                <h2>Карта мира знаменитостей</h2>
-                <p>Исследуйте, откуда родом великие мыслители</p>
-                <div id="worldMap" class="world-map"></div>
-            </section>
-
-            <section class="about-section">
-                <h2>О нашем собрании</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>Это собрание цитат представляет собой коллекцию мудрых изречений самых влиятельных личностей в истории человечества.</p>
-                        <p>От философов древности до современных лидеров — их слова продолжают вдохновлять поколения.</p>
-                    </div>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <i class="fas fa-quote-right"></i>
-                            <h3 id="total-quotes">0</h3>
-                            <p>Цитат</p>
-                        </div>
-                        <div class="stat">
-                            <i class="fas fa-user-tie"></i>
-                            <h3 id="total-celebrities">0</h3>
-                            <p>Знаменитостей</p>
-                        </div>
-                        <div class="stat">
-                            <i class="fas fa-tags"></i>
-                            <h3>5</h3>
-                            <p>Коллекций</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Мудрость Великих</h3>
-                    <p>Собрание вечной мудрости для вдохновения и размышлений.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Навигация</h3>
-                    <ul>
-                        <li><a href="index.html">Главная</a></li>
-                        <li><a href="celebrities.html">Знаменитости</a></li>
-                        <li><a href="gallery.html">Галерея</a></li>
-                        <li><a href="#collections">Коллекции</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Контакты</h3>
-                    <p><i class="fas fa-envelope"></i> wisdom@greats.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Мудрость Великих. Все права защищены.</p>
-            </div>
-        </footer>
+  <nav class="nav-premium">
+    <div class="nav-container">
+      <div class="logo-premium">
+        <i class="fas fa-crown"></i>
+        <span>WISDOM</span>
+      </div>
+      <div class="nav-links-premium">
+        <a href="index.html" class="active">Главная</a>
+        <a href="celebrities.html">Личности</a>
+        <a href="gallery.html">Галерея</a>
+        <button id="inspireBtnPremium" class="nav-cta">Вдохновиться</button>
+        <button id="favoritesBtnPremium" class="nav-icon"><i class="fas fa-heart"></i></button>
+        <button id="themeTogglePremium" class="nav-icon"><i class="fas fa-moon"></i></button>
+      </div>
     </div>
+  </nav>
 
-    <div class="fullscreen-modal" id="inspireModal">
-        <div class="fullscreen-modal-content">
-            <span class="close-fullscreen-modal">&times;</span>
-            <div class="fullscreen-modal-body" id="inspireModalBody">
-                <div class="loading-spinner">
-                    <i class="fas fa-spinner fa-spin"></i>
-                </div>
-            </div>
+  <main class="main-premium">
+    <section class="hero-premium">
+      <div class="hero-badge">EST. 2024</div>
+      <h1 class="hero-title">
+        <span class="hero-title-light">Мудрость</span>
+        <span class="hero-title-gold">Великих</span>
+      </h1>
+      <p class="hero-subtitle">Цитаты, которые изменили ход истории. Эксклюзивное собрание мыслей величайших умов
+        человечества.</p>
+      <div class="hero-buttons">
+        <a href="celebrities.html" class="btn-premium btn-primary">Исследовать →</a>
+        <a href="#quizSection" class="btn-premium btn-outline">Квиз ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-number" id="statQuotes">0</span>
+          <span class="stat-label">цитат</span>
         </div>
-    </div>
-
-    <div class="modal" id="collectionModal">
-        <div class="modal-content modal-lg">
-            <span class="close-modal">&times;</span>
-            <div class="modal-body" id="collectionModalBody">
-            </div>
+        <div class="hero-stat">
+          <span class="stat-number" id="statCelebs">0</span>
+          <span class="stat-label">личностей</span>
         </div>
-    </div>
+        <div class="hero-stat">
+          <span class="stat-number">12</span>
+          <span class="stat-label">стран</span>
+        </div>
+      </div>
+    </section>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <section class="envelope-section">
+      <div class="section-header">
+        <span class="section-tag">Открой секрет</span>
+        <h2>Цитата дня в конверте</h2>
+      </div>
+      <div class="envelope-container">
+        <div class="envelope" id="envelope">
+          <div class="envelope-front">
+            <div class="envelope-flap"></div>
+            <div class="envelope-body">
+              <i class="fas fa-envelope"></i>
+              <span>Нажми, чтобы открыть</span>
+            </div>
+          </div>
+          <div class="envelope-back">
+            <div class="envelope-quote-content">
+              <i class="fas fa-quote-right"></i>
+              <p class="envelope-quote-text" id="envelopeQuoteText"></p>
+              <div class="envelope-quote-author" id="envelopeQuoteAuthor"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="collections-premium" id="collections">
+      <div class="section-header">
+        <span class="section-tag">По темам</span>
+        <h2>Коллекции</h2>
+      </div>
+      <div class="collections-grid-premium" id="collectionsGrid"></div>
+    </section>
+
+    <section class="quiz-premium-section" id="quizSection">
+      <div class="section-header">
+        <span class="section-tag">Проверь себя</span>
+        <h2>Угадай автора</h2>
+        <p>Кто сказал эту мудрую мысль?</p>
+      </div>
+
+      <div class="quiz-container" id="quizContainer">
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar" id="quizProgressBar"></div>
+        </div>
+        <div class="quiz-score">
+          <i class="fas fa-star"></i>
+          <span id="quizScore">0</span> / <span id="quizTotal">0</span>
+        </div>
+        <div class="quiz-question-card">
+          <div class="quiz-quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <p class="quiz-quote-text" id="quizQuoteText">Загрузка...</p>
+          <div class="quiz-options" id="quizOptions"></div>
+          <div class="quiz-feedback" id="quizFeedback"></div>
+          <div class="quiz-next-btn">
+            <button id="nextQuizBtn" class="btn-premium btn-primary" disabled>Следующий вопрос →</button>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult" style="display: none;">
+          <div class="quiz-result-card">
+            <i class="fas fa-crown"></i>
+            <h3 id="resultTitle"></h3>
+            <p id="resultMessage"></p>
+            <button id="restartQuizBtn" class="btn-premium btn-primary">Пройти заново</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-premium">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="section-tag">О проекте</span>
+          <h2>Собрание вечной мудрости</h2>
+          <p>Тысячи цитат, сотни личностей. Каждая цитата — это урок, каждая мысль — это откровение. Мы собираем лучшее
+            из лучшего, чтобы ты мог черпать вдохновение каждый день.</p>
+          <div class="about-features">
+            <div class="feature"><i class="fas fa-check-circle"></i> Проверенные источники</div>
+            <div class="feature"><i class="fas fa-check-circle"></i> Ежедневное обновление</div>
+            <div class="feature"><i class="fas fa-check-circle"></i> Премиум коллекция</div>
+          </div>
+        </div>
+        <div class="about-stats-premium">
+          <div class="stat-card">
+            <i class="fas fa-quote-right"></i>
+            <div class="stat-number" id="totalQuotesStat">0</div>
+            <div class="stat-label">уникальных цитат</div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-user-graduate"></i>
+            <div class="stat-number" id="totalCelebsStat">0</div>
+            <div class="stat-label">великих личностей</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-premium">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <i class="fas fa-crown"></i>
+        <span>WISDOM</span>
+        <p>Премиум коллекция цитат великих людей</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Главная</a>
+        <a href="celebrities.html">Личности</a>
+        <a href="gallery.html">Галерея</a>
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Wisdom of the Greats. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="modal-premium" id="quoteModalPremium">
+    <div class="modal-premium-content">
+      <button class="modal-close">&times;</button>
+      <div id="modalBodyPremium"></div>
+    </div>
+  </div>
+
+  <div class="modal-premium fullscreen" id="inspireModalPremium">
+    <div class="modal-premium-content fullscreen">
+      <button class="modal-close">&times;</button>
+      <div id="inspireModalBodyPremium"></div>
+    </div>
+  </div>
+
+  <div class="modal-premium" id="collectionModalPremium">
+    <div class="modal-premium-content large">
+      <button class="modal-close">&times;</button>
+      <div id="collectionModalBodyPremium"></div>
+    </div>
+  </div>
+
+  <div class="modal-premium" id="favoritesModalPremium">
+    <div class="modal-premium-content large">
+      <button class="modal-close">&times;</button>
+      <div id="favoritesModalBodyPremium"></div>
+    </div>
+  </div>
+
+  <div class="toast-premium" id="toastPremium"></div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
